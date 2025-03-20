@@ -13,5 +13,6 @@
       "filetypes": ["dockercompose"],
       "rootPatterns": [".git", ".env", "docker-compose.yml", "compose.yml"]
     }
-  }
+  },
+  "git.enableGutters": false
 }

@@ -8,6 +8,7 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/fzf.vim'
 Plug '907th/vim-auto-save'
+Plug 'https://github.com/wting/gitsessions.vim/blob/master/plugin/gitsessions.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
@@ -18,8 +19,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
+"highlight CocFloating ctermbg=240
 let g:coc_global_extensions = [
+						\ 'coc-marketplace',
 			      \ 'coc-snippets',
+						\ 'coc-git',
             \ 'coc-json',
 						\ 'coc-html',
 						\ 'coc-sh',
@@ -28,7 +32,7 @@ let g:coc_global_extensions = [
             \ 'coc-clangd',
             \ 'coc-go',
             \ 'coc-zig',
-            \ 'coc-git',
+            \ 'coc-java',
             \ ]
 let g:auto_save = 0 "disable vim-auto-save
 
