@@ -8,11 +8,11 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/fzf.vim'
 Plug '907th/vim-auto-save'
-Plug 'https://github.com/wting/gitsessions.vim/blob/master/plugin/gitsessions.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -35,7 +35,6 @@ let g:coc_global_extensions = [
             \ 'coc-java',
             \ ]
 let g:auto_save = 0 "disable vim-auto-save
-
 ":Coc<tab>
 ":Plug<tab>
 ":AutoSave<tab>

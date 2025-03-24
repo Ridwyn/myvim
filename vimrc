@@ -14,7 +14,7 @@ set cursorline
 set history=200
 set number
 set relativenumber
-set scrolloff=8
+set scrolloff=13
 
 set ignorecase
 set incsearch
@@ -23,16 +23,18 @@ set smartcase
 set mouse=a
 set clipboard+=unnamed,unnamedplus
 
-colorscheme evening
+colorscheme slate
 
 " different color depending on focus
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-highlight NormalNC ctermbg=246
+highlight NormalNC ctermbg=233
 augroup winbg autocmd!
-    au WinEnter * setl wincolor=
-    au WinLeave * setl wincolor=NormalNC
+    au WinEnter * setl wincolor=NormalNC
+    au WinLeave * setl wincolor=
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-
-
+command! -bang -bar -nargs=? -complete=dir FZFCd
+	\ call fzf#run(fzf#wrap(
+	\ {'source': 'find '..( empty("<args>") ? ( <bang>0 ? "~" : "." ) : "<args>" ) ..
+	\ ' -type d -maxdepth 1', 'sink': 'cd'}))

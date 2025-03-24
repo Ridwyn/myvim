@@ -1,1 +1,1 @@
-let g:netrw_bookmarklist= ['/home/ridwyn/projects/spring-batch-cache/', '/home/ridwyn/projects/spring-batch-cache/complete/']
+let g:netrw_bookmarklist= ['/home/ridwyn/projects/java-mmap/', '/home/ridwyn/projects/java-mmap/src/', '/home/ridwyn/projects/java-mmap/src/main/java/com/ridwyn/app/', '/home/ridwyn/projects/spring-batch-cache/', '/home/ridwyn/projects/spring-batch-cache/complete/']
