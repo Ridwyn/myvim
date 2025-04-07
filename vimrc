@@ -8,8 +8,10 @@ so ~/.vim/remaps.vim
 
 set viminfo+=n~/.vim/.viminfo
 set undodir=~/.vim/undodir
+set undofile
 set directory = "~/.vim/tmp//"
 set grepprg =rg\ --vimgrep\ --smart-case
+
 
 set cursorline
 set history=200
@@ -27,14 +29,14 @@ set smartcase
 set mouse=a
 set clipboard+=unnamed,unnamedplus
 
-colorscheme slate
+colorscheme habamax
 
 " different color depending on focus
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
-highlight NormalNC ctermbg=233
+highlight NormalNC ctermbg=243
 augroup winbg autocmd!
-    au WinEnter * setl wincolor=NormalNC
-    au WinLeave * setl wincolor=
+    au WinEnter * setl wincolor=
+    au WinLeave * setl wincolor=NormalNC
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 

@@ -15,6 +15,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mbbill/undotree'
+Plug 'mikelue/vim-maven-plugin'
+Plug 'machakann/vim-highlightedyank'
 
 
 call plug#end()

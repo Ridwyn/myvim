@@ -17,20 +17,33 @@ nnoremap <C-p> :cprev<CR>
 noremap <leader>/ :Commentary<cr>
 
 
-
 "Open terminal
 nnoremap <leader>t :term<CR>
 
-"Fuzzy finding and word searches thorugh whole project
-nnoremap <leader>f :Files<CR> 
-nnoremap <leader>s :RG<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""
+"FZF command completions finding and word searches thorugh whole project
+""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fs :RG<CR>
+vnoremap <leader>fs y:RG <C-R>"<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fc :Commands<CR>
+nnoremap <leader>fa :Args<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fm :Marks<CR>
+nnoremap <leader>fcc :History:<CR>
+nnoremap <leader>fbb :History<CR>
+nnoremap <leader>fss :History/<CR>
 
-"Highlighted text fuzzy search and through file
-vnoremap <leader>s y:RG <C-R>"<CR>
-vnoremap g/ y/<C-R>"<CR>
+
+"Open quickfix
+nnoremap <leader>q :copen<CR>
+
+"Search for highlited text in file
+vnoremap / y/<C-R>"<CR>
 
 "Replacing highlighted text
-"vnoremap  <leader>r <C-R>ay:substitue/<C-R>ap 
+vnoremap  <leader>r <C-R>ay:substitue/<C-R>ap 
 vnoremap  r "ay:substitute/<C-R>a/
 
 "Yank and paste in visual and insert mode

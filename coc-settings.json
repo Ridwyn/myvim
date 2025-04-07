@@ -16,6 +16,7 @@
     }
   },
   "git.enableGutters": false,
+  "java.saveActions.organizeImports": true,
   "java.imports.gradle.wrapper.checksums": [
     {
       "sha256": "df0124be72626f5aef1badfd39039b976e91ffcf4409faca5344053b441fb939",
