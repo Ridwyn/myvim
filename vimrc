@@ -6,7 +6,37 @@ syntax on
 so ~/.vim/plugin-config.vim
 so ~/.vim/remaps.vim
 
-set viminfo+=n~/.vim/.viminfo
+" set viminfo+=n~/.vim/.viminfo
+" Disable global viminfo by setting an empty viminfo file initially
+set viminfofile=NONE
+
+augroup viminfo
+	autocmd!
+	autocmd VimEnter * call s:SetLocalViminfo()
+	function! s:SetLocalViminfo()
+		if argc() > 0 && isdirectory(expand(argv(0))) 
+			" Disable global viminfo by ensuring viminfo doesn't reference $HOME
+			set viminfo+=n" . l:viminfo_path
+			" Change  Working Directory
+			execute 'cd' fnameescape(argv(0)) 
+			" Set local viminfo
+			let l:viminfo_path = getcwd() . '/.viminfo'
+			let &viminfofile = l:viminfo_path
+			" Read viminfo into vim session 
+			execute 'rviminfo'
+			echom "Using local viminfo: " . l:viminfo_path
+		else
+			" Fallback to a default or no viminfo for non-directory buffers
+			let l:viminfofile = $HOME . '/.vim/.viminfo'
+			let &viminfofile = l:viminfofile
+			echom "Not a directory, viminfofile set to " . l:viminfofile		
+		endif
+	endfunction
+
+	" Write viminfo into vim session 
+	autocmd VimLeave * wviminfo
+augroup END
+
 set undodir=~/.vim/undodir
 set undofile
 set directory = "~/.vim/tmp//"
@@ -27,9 +57,12 @@ set incsearch
 set hlsearch
 set smartcase
 set mouse=a
-set clipboard+=unnamed,unnamedplus
+set clipboard=unnamedplus
 
 colorscheme habamax
+
+"Remove quickfix fix 
+autocmd! BufWinEnter *Quickfix* setlocal nowinfixheight 
 
 " different color depending on focus
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -38,6 +71,9 @@ augroup winbg autocmd!
     au WinEnter * setl wincolor=
     au WinLeave * setl wincolor=NormalNC
 augroup END
+
+"to enable resizing of quickfix list by Ctrl+w =
+autocmd! BufWinEnter *Quickfix* setlocal nowinfixheight 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 "FZF commands

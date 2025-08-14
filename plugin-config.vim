@@ -22,6 +22,7 @@ Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
+
 "highlight CocFloating ctermbg=240
 let g:coc_global_extensions = [
 						\ 'coc-marketplace',
