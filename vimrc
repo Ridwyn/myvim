@@ -5,6 +5,7 @@ syntax on
 
 so ~/.vim/plugin-config.vim
 so ~/.vim/remaps.vim
+so ~/.vim/commands.vim
 
 " set viminfo+=n~/.vim/.viminfo
 " Disable global viminfo by setting an empty viminfo file initially
@@ -15,13 +16,22 @@ augroup viminfo
 	autocmd VimEnter * call s:SetLocalViminfo()
 	function! s:SetLocalViminfo()
 		if argc() > 0 && isdirectory(expand(argv(0))) 
-			" Disable global viminfo by ensuring viminfo doesn't reference $HOME
-			set viminfo+=n" . l:viminfo_path
 			" Change  Working Directory
 			execute 'cd' fnameescape(argv(0)) 
 			" Set local viminfo
 			let l:viminfo_path = getcwd() . '/.viminfo'
 			let &viminfofile = l:viminfo_path
+			set viminfo+=!                  " Save command history
+			set viminfo+=n                  " Save marks in the current buffer
+			set viminfo+=s                  " Save search history
+			set viminfo+=f                  " Save file marks
+			" set viminfo+=r                  " Save registers
+			" set viminfo+=a                  " Save all registers (including unnamed)
+			set viminfo+=m                  " Save last used marks
+			set viminfo+=p                  " Save last used search pattern
+			set viminfo+=t                  " Save last used tags
+			set viminfo+=x                  " Save last used command-line completion
+			" set viminfo+=y                  " Save last used yank and delete registers
 			" Read viminfo into vim session 
 			execute 'rviminfo'
 			echom "Using local viminfo: " . l:viminfo_path
@@ -36,6 +46,7 @@ augroup viminfo
 	" Write viminfo into vim session 
 	autocmd VimLeave * wviminfo
 augroup END
+
 
 set undodir=~/.vim/undodir
 set undofile

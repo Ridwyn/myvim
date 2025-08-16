@@ -48,7 +48,7 @@ nnoremap <leader>fbb :History<CR>
 nnoremap <leader>fss :History/<CR>
 
 "Return to explore
-noremap <leader><leader> :Rex<CR>
+" noremap <leader><leader> :Rex<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -99,13 +99,4 @@ augroup END
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""
-"Coc.vim Mapping
-""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
