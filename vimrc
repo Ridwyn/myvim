@@ -20,6 +20,9 @@ augroup viminfo
 			execute 'cd' fnameescape(argv(0)) 
 			" Set local viminfo
 			let l:viminfo_path = getcwd() . '/.viminfo'
+			if(!filereadable(l:viminfo_path))
+				call writefile([], l:viminfo_path)
+			endif
 			let &viminfofile = l:viminfo_path
 			set viminfo+=!                  " Save command history
 			set viminfo+=n                  " Save marks in the current buffer

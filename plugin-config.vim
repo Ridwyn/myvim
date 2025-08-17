@@ -7,7 +7,6 @@ call plug#begin()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/fzf.vim'
-Plug '907th/vim-auto-save'
 Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
@@ -22,6 +21,16 @@ Plug 'airblade/vim-gitgutter'
 
 
 call plug#end()
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline Statusline 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Remove trailing whitespace indicator
+let g:airline#extensions#whitespace#enabled = 0
+" Remove mixed indentation indicator
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#show_mixed_indent = 0
 
 
 highlight CocFloating ctermbg=240
@@ -46,7 +55,6 @@ highlight CocFloating ctermbg=240
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-let g:auto_save = 0 "disable vim-auto-save
 " :Coc<tab>
 " :Plug<tab>
 " :AutoSave<tab>

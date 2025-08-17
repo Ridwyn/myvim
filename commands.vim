@@ -39,8 +39,10 @@ function! OutputToTab(cmd)
     if a:cmd =~ '^\s*!'
         " Remove leading ! and execute as shell command
         let remove_bang = substitute(trim(a:cmd), '^!', '', '')
-        let shell_cmd = substitute(remove_bang, '\r', '', '')
-        silent let output = system(shell_cmd)
+        let shell_cmd = substitute(remove_bang, '\r', '', '') 
+		let final_shell_cmd  = shell_cmd . ' 2>&1'
+		call  append(line('$'), final_shell_cmd)
+        silent let output = system(final_shell_cmd)
 	else
         " Execute as Vim command
         silent let output = execute(a:cmd)
